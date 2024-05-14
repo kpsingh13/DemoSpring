@@ -1,7 +1,11 @@
 package com.example.demo;
 
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
+import com.example.demo.student.Student;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +21,30 @@ public class DemoApplication {
 	}
 
 	@GetMapping
-	public List<String> hello() {   //returns json outupt
-		return List.of("Hello," ,"this is new" );
+	public List<Student> hello(){
+		return List.of(
+				new Student(
+						1L,
+						"Kp Singh",
+						21,
+						"kp@gmail.com",
+						LocalDate.of(2000, Month.JANUARY,5)
+
+				)
+		);
 	}
+//	public List<Student> hello() {
+////		return List.of("Hello", "world");
+//		return List.of(
+//				new Student(
+//						1L,
+//						"Kp Singh",
+//						21,
+//						"kp@gmail.com",
+//						LocalDate.of(2000, Month.JANUARY,5)
+//
+//				)
+//				);
+//	}
 
 }
